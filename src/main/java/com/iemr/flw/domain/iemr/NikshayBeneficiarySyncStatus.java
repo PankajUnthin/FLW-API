@@ -51,6 +51,9 @@ public class NikshayBeneficiarySyncStatus {
     @Column(name = "last_attempt_at")
     private Timestamp lastAttemptAt;
 
+    @Column(name = "isUpdated", nullable = false)
+    private Boolean isUpdated = false;
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private Timestamp createdAt;

@@ -119,6 +119,12 @@ public interface BeneficiaryRepo extends JpaRepository<RMNCHBeneficiaryDetailsRm
     @Query("SELECT d FROM RMNCHMBeneficiarydetail d WHERE d.BenRegId = :benRegID")
     RMNCHMBeneficiarydetail getDetailByBenRegID(@Param("benRegID") BigInteger benRegID);
 
+    @Query("SELECT r FROM RMNCHBeneficiaryDetailsRmnch r WHERE r.BenRegId IN :benRegIDs")
+    List<RMNCHBeneficiaryDetailsRmnch> findRmnchByBenRegIDIn(@Param("benRegIDs") Collection<Long> benRegIDs);
+
+    @Query("SELECT d FROM RMNCHMBeneficiarydetail d WHERE d.BenRegId IN :benRegIDs")
+    List<RMNCHMBeneficiarydetail> findDetailsByBenRegIDIn(@Param("benRegIDs") Collection<BigInteger> benRegIDs);
+
 
     // BeneficiaryRepo — replaces 3 separate queries per beneficiary
     @Query(value = """

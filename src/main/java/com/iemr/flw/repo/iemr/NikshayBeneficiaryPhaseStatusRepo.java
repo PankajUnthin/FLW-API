@@ -14,6 +14,8 @@ public interface NikshayBeneficiaryPhaseStatusRepo extends JpaRepository<Nikshay
 
     List<NikshayBeneficiaryPhaseStatus> findByBenRegID(Long benRegID);
 
+    List<NikshayBeneficiaryPhaseStatus> findByStatus(String status);
+
     List<NikshayBeneficiaryPhaseStatus> findByPhaseAndStatus(String phase, String status);
 
     List<NikshayBeneficiaryPhaseStatus> findByStatusAndFailureReason(String status, String failureReason);
